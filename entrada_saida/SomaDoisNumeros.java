@@ -1,19 +1,15 @@
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class SomaDoisNumeros{
     public static void main(String[] args){
         //declaração de variáveis
-        Scanner leitor = new Scanner(System.in);
-        int a, b;
-        int resultado;
+        double a, b, resultado;
         //entrada de dados
-        System.out.println("Digite o primeiro valor:");
-        a = leitor.nextInt();
-        System.out.println("Digite o segundo valor:");
-        b = leitor.nextInt();
+        a = Double.parseDouble(JOptionPane.showInputDialog("Digite o primeiro valor:"));
+        b = Double.parseDouble(JOptionPane.showInputDialog("Digite o segundo valor:"));
         //processamento
         resultado = a + b;
         //saída
-        System.out.printf("%d + %d = %d", a, b, resultado);
+        JOptionPane.showMessageDialog(null, resultado);
     }
 }
