@@ -14,3 +14,7 @@ def menu():
         a = int(input("Insira o primeiro número para a multiplicação: "))
         b = int(input("Insira o segundo número para a multiplicação: "))
         print(calculadora.multiplicar(a, b))
+    if escolha == 4:
+        a = int(input("Insira o primeiro número para a divisão: "))
+        b = int(input("Insira o segundo número para a divisão: "))
+        print(calculadora.dividir(a, b))
