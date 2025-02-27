@@ -21,4 +21,5 @@ def menu():
     if escolha == 0:
         print("Obrigado por utilizar o programa!")
         exit
+        
 menu()
