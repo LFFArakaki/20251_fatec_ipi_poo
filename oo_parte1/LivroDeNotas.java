@@ -7,7 +7,7 @@ class LivroDeNotas{
     }
 
     public void setNomeDaDisciplina(String nomeDaDisciplina){
-        if(nomeDaDisciplina.len() >= 3)
+        if(nomeDaDisciplina.length() >= 3)
         {
             this.nomeDaDisciplina = nomeDaDisciplina;
         }
