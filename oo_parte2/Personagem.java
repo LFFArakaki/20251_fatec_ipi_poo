@@ -46,8 +46,15 @@ class Personagem{
             energia = energia < 10 ? energia+1 : energia;
         }
     }
-
-    void mostrarAtributos(){
-        System.out.printf("Energia: %d\nFome: %d\nSono: %d\n\n",energia, fome, sono);
+    
+    public String toString()
+    {
+        return String.format(
+            "%s\nEnergia: %d\nFome: %d\nSono: %d"
+            ,nome, energia, fome, sono
+        );
     }
+    //void mostrarAtributos(){
+    //    System.out.printf("Energia: %d\nFome: %d\nSono: %d\n\n",energia, fome, sono);
+    //}
 }

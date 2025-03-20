@@ -21,7 +21,8 @@ public class JogoV2 {
                 personagem.dormir();
                 break;
             }
-            personagem.mostrarAtributos();
+            System.out.println(personagem);
+            System.out.println("**********************");
             Thread.sleep(5000);
         }
     }
