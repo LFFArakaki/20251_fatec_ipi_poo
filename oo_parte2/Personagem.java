@@ -1,14 +1,32 @@
-class Personagem{
-    private String nome;
-    private int energia = 10;
-    private int fome = 0;
-    private int sono = 0;
+import java.util.Random;
 
-    public Personagem(String nome){
-        this.nome = nome;
+public class Personagem{
+
+    private String nome;
+    private String [] possiveisNomes = {"Steve", "Alex", "John"};
+    private int energia;
+    private int fome;
+    private int sono;
+
+    public Personagem(String nome, int energia, int fome, int sono){
+        this.nome = nome.length() < 4 ? nomeAleatorio() : nome;
+        this.energia = energia < 0 || energia > 10 ? 10 : energia;
+        this.fome = fome < 0 || fome > 10 ? 0 : fome;
+        this.sono = sono < 0 || sono > 10 ? 0 : sono;
     }
 
-    void cacar(){
+    public Personagem(){
+        this.nome = nomeAleatorio();
+        this.energia = 10;
+        this.fome = 0;
+        this.sono = 0;
+    }
+
+    private String nomeAleatorio(){
+        var rand = new Random();
+        return this.possiveisNomes[rand.nextInt(possiveisNomes.length)];
+    }
+    public void cacar(){
         if(energia < 2)
         {
             System.out.println("Sem energia para cacar!");
@@ -22,7 +40,7 @@ class Personagem{
         sono = sono < 10 ? sono+1 : sono;
         fome = fome < 10 ? fome+1 : fome;
     }
-    void comer(){
+    public void comer(){
         if(fome < 1)
         {
             System.out.println("Nao esta com fome!");
@@ -34,7 +52,7 @@ class Personagem{
             energia = energia < 10 ? energia+1 : energia;
         }
     }
-    void dormir(){
+    public void dormir(){
         if(sono < 1)
         {
             System.out.println("Nao esta com sono!");

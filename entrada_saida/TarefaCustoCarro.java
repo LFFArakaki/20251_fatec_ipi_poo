@@ -12,5 +12,6 @@ public class TarefaCustoCarro{
         resultado = a + (a * .28) + (a * .45);
         //saída
         System.out.printf("Valor = %f", resultado);
+        leitor.close();
     }
 }
