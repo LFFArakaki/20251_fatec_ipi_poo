@@ -1,31 +1,30 @@
 package colecoes;
 
-public class VetorDinamico{
+public class VetorDinamico<Type>{
     private static final int LIMIAR_INFERIOR = 4;
     private int capacidade;
     private int quantidade;
-    private int[] elementos;
+    private Type[] elementos;
 
     public VetorDinamico(){
         this.capacidade = LIMIAR_INFERIOR;
         this.quantidade = 0;
-        this.elementos = new int[this.capacidade];
+        this.elementos = (Type[])new Object[this.capacidade];
     }
 
-    public void adicionar(int elemento){
+    public void adicionar(Type elemento){
         if(checarCheio()) redimensionar(2);
         this.elementos[this.quantidade++] = elemento;
     }
-    public void remover(int elemento){
+    public void remover(int posicao){
         if(checarVazio()) return;
-        this.elementos[elemento] = 0;
-        for(int i = elemento;i<quantidade-1;i++) trocarElemento(i, i+1);
+        for(int i = posicao;i<quantidade-1;i++) trocarElemento(i, i+1);
         this.quantidade--;
         if(this.quantidade == this.capacidade/4 && this.capacidade > LIMIAR_INFERIOR) redimensionar(0.5);
     }
     private void redimensionar(double fator){
         this.capacidade *= fator;
-        var aux = new int[this.capacidade];
+        var aux = (Type[])new Object[this.capacidade];
         for(int i=0;i<this.quantidade;i++) aux[i] = this.elementos[i];
         this.elementos = aux;
     }
@@ -39,7 +38,7 @@ public class VetorDinamico{
         return this.quantidade;
     }
     private void trocarElemento(int elementoA, int elementoB){
-        int temp = this.elementos[elementoA];
+        Type temp = this.elementos[elementoA];
         this.elementos[elementoA] = this.elementos[elementoB];
         this.elementos[elementoB] = temp;
     }
