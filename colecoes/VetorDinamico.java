@@ -13,7 +13,7 @@ public class VetorDinamico{
     }
 
     public void adicionar(int elemento){
-        if(checarCheio()) redimensionar(this.capacidade*2);
+        if(checarCheio()) redimensionar(2);
         this.elementos[this.quantidade++] = elemento;
     }
     public void remover(int elemento){
@@ -21,13 +21,13 @@ public class VetorDinamico{
         this.elementos[elemento] = 0;
         for(int i = elemento;i<quantidade-1;i++) trocarElemento(i, i+1);
         this.quantidade--;
-        if(this.quantidade == this.capacidade/4 && this.capacidade > LIMIAR_INFERIOR) redimensionar(this.capacidade/2);
+        if(this.quantidade == this.capacidade/4 && this.capacidade > LIMIAR_INFERIOR) redimensionar(0.5);
     }
-    private void redimensionar(int capacidade){
-        var aux = new int[capacidade];
+    private void redimensionar(double fator){
+        this.capacidade *= fator;
+        var aux = new int[this.capacidade];
         for(int i=0;i<this.quantidade;i++) aux[i] = this.elementos[i];
         this.elementos = aux;
-        this.capacidade = capacidade;
     }
     public boolean checarCheio(){
         return this.quantidade == this.capacidade;
