@@ -9,8 +9,9 @@ public class TesteVetorDinamicoV1 {
 
         while(true)
         {
-            var a = rand.nextInt(1,7);
-            v.adicionar(a);
+            var escolha = rand.nextDouble(0);
+            var numero = rand.nextInt(1,7);
+            v.adicionar(numero);
             System.out.println(v);
             System.out.println("***********************");
             Thread.sleep(5000);
